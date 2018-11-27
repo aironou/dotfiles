@@ -74,7 +74,7 @@
 block encrypt filesystems fsck)`
 1. `mkinitcpio -p linux`
 1. `passwd`
-1. `useradd -m -g users -G http log sys wheel audio disk floppy input optical scanner storage video -s /bin/zsh aironou`
+1. `useradd -m -g aironou -G users http log sys wheel audio disk floppy input optical scanner storage video -s /bin/zsh aironou`
 1. Abrir `/etc/sudoers` e incluir configuração para o grupo `wheels` para `%wheel ALL=(ALL) ALL`
 1. `passwd aironou`
 1. `pacman -S efibootmgr vim`
