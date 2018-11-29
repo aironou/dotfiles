@@ -23,7 +23,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ ! $DISPLAY ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='atom -w'
 fi
 
 zstyle ':completion:*:*:kill:*' menu yes select
