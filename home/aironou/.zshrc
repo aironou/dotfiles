@@ -28,3 +28,7 @@ fi
 
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
+
+autoload -Uz compinit
+compinit
+kitty + complete setup zsh | source /dev/stdin
