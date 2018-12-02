@@ -50,7 +50,7 @@ screens = [Screen(
         widget.Spacer(5),
         widget.Memory(fmt='{MemAvailable}M/{MemTotal}M', update_interval=5),
         widget.Spacer(5),
-        widget.Battery(low_percentage=0.16),
+        widget.Battery(low_percentage=0.16, update_delay=5),
         widget.Spacer(5),
         widget.ThermalSensor(),
         widget.Spacer(5),
