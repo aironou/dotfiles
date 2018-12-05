@@ -6,9 +6,11 @@ try:
 except ImportError:
     pass
 
+
 web_browser = 'firefox'
 terminal = 'kitty'
 editor = 'atom'
+volume_command_prefix = 'amixer -c 1 -q set Master 5%{0}'
 
 keys = [
     Key(['mod1'], 'F4', lazy.window.kill()),
@@ -20,7 +22,10 @@ keys = [
     Key(['mod1'], 'F2', lazy.spawncmd()),
     Key(['mod4'], 'q', lazy.spawn(editor)),
     Key(['mod4'], 'w', lazy.spawn(web_browser)),
-    Key(['mod4'], 'Return', lazy.spawn(terminal))
+    Key(['mod4'], 'Return', lazy.spawn(terminal)),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn(volume_command_prefix.format('-'))),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn(volume_command_prefix.format('+'))),
+    Key([], 'XF86AudioMute', lazy.spawn('amixer -q set Master toggle'))
 ]
 
 groups = [Group(group) for group in '1']

@@ -1,0 +1,23 @@
+pcm.!default {
+    type hw
+    card Generic_1
+}
+
+ctl.!default {
+    type hw
+    card Generic_1
+}
+
+pcm.!default {
+  type pulse
+  fallback "sysdefault"
+  hint {
+    show on
+    description "Default ALSA Output (currently PulseAudio Sound Server)"
+  }
+}
+
+ctl.!default {
+  type pulse
+  fallback "sysdefault"
+}
