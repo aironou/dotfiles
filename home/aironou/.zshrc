@@ -24,6 +24,7 @@ if [[ ! $DISPLAY ]]; then
   export EDITOR='vim'
 else
   export EDITOR='atom -w'
+  export ATOM_HOME='/home/aironou/.atom'
 fi
 
 zstyle ':completion:*:*:kill:*' menu yes select
