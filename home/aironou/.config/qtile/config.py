@@ -10,7 +10,8 @@ except ImportError:
 web_browser = 'firefox'
 terminal = 'kitty'
 editor = 'atom'
-volume_command_prefix = 'amixer -c 1 -q set Master 5%{0}'
+file_manager = 'io.elementary.files'
+volume_command_prefix = 'amixer -c 1 -q set Master 2%{0}'
 
 keys = [
     Key(['mod1'], 'F4', lazy.window.kill()),
@@ -25,7 +26,8 @@ keys = [
     Key(['mod4'], 'Return', lazy.spawn(terminal)),
     Key([], 'XF86AudioLowerVolume', lazy.spawn(volume_command_prefix.format('-'))),
     Key([], 'XF86AudioRaiseVolume', lazy.spawn(volume_command_prefix.format('+'))),
-    Key([], 'XF86AudioMute', lazy.spawn('amixer -q set Master toggle'))
+    Key([], 'XF86AudioMute', lazy.spawn('amixer -q set Master toggle')),
+    Key(['mod4'], 'e', lazy.spawn(file_manager))
 ]
 
 groups = [Group(group) for group in '1']
