@@ -41,6 +41,8 @@ copy_config_files() {
     touch $HOME/.hushlogin
     mkdir -p $HOME/.config/htop
     cp $CONFIG_DIRECTORY/htoprc $HOME/.config/htop/.
+    mkdir -p $HOME/.ssh
+    cp $CONFIG_DIRECTORY/ssh.config $HOME/.ssh/config
 }
 
 main() {
