@@ -45,11 +45,24 @@ copy_config_files() {
     cp $CONFIG_DIRECTORY/ssh.config $HOME/.ssh/config
 }
 
+generate_ssh_keys() {
+    log ">>> generating SSH keys"
+    for SSHFILE in "aironou-github.com aironou-gitlab.com"
+    do
+        ssh-keygen -q -t ed25519 -N "" -f $HOME/.ssh/$SSHFILE
+        log ">>> $SSHFILE"
+        cat $HOME/.ssh/$SSHFILE
+        echo
+    done
+
+}
+
 main() {
     cd $HOME
     install_dependencies
     clone_dotfiles
     install_oh_my_zsh
+    generate_ssh_keys
     copy_config_files
 }
 
