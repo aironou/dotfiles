@@ -12,6 +12,7 @@ DISABLE_AUTO_UPDATE="false"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
+ZSH_DISABLE_COMPFIX="true"
 
 plugins=(
     command-not-found
