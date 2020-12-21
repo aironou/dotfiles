@@ -47,11 +47,11 @@ copy_config_files() {
 
 generate_ssh_keys() {
     log ">>> generating SSH keys"
-    for SSHFILE in "aironou-github.com aironou-gitlab.com"
+    for SSHFILE in "aironou-github.com" "aironou-gitlab.com"
     do
-        ssh-keygen -q -t ed25519 -N "" -f $HOME/.ssh/$SSHFILE
+        ssh-keygen -q -t ed25519 -N "" -f $HOME/.ssh/$SSHFILE -C "$SSHFILE@$(hostname)"
         log ">>> $SSHFILE"
-        cat $HOME/.ssh/$SSHFILE
+        cat $HOME/.ssh/$SSHFILE.pub
         echo
     done
 
