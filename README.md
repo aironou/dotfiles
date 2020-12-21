@@ -55,3 +55,22 @@ Actually, I use the tools below:
 
 1. Download from [Docker Desktop site](https://www.docker.com/products/docker-desktop)
 1. Follow installer instructions
+
+
+---
+
+
+## Setup
+
+
+### Windows Terminal
+
+
+1. Copy contents of **config/windows-terminal.json**
+
+
+### WSL 2
+
+
+1. Check if your user has permission to execute any command
+1. Run `sh -c "$(curl -fsSL https://raw.githubusercontent.com/aironou/dotfiles/main/bin/init.sh)"`
