@@ -9,13 +9,13 @@ log() {
 
 install_dependencies() {
     log ">>> installing dependencies"
-    sudo apt update 2>/dev/null
-    sudo apt install -y git htop httpie nmap vim zsh --fix-missing 2>/dev/null
+    sudo apt update
+    sudo apt install -y git htop httpie nmap vim zsh --fix-missing
 }
 
 clone_dotfiles() {
     log ">>> cloning dotfiles"
-    if [ -d $DOTFILES_DIRECTORY && -d $DOTFILES_DIRECTORY/.git ]
+    if [ -d $DOTFILES_DIRECTORY ] && [ -d $DOTFILES_DIRECTORY/.git ]
     then
         cd $DOTFILES_DIRECTORY
         git checkout -- .
@@ -27,7 +27,7 @@ clone_dotfiles() {
 
 install_oh_my_zsh() {
     log ">>> installing oh-my-zsh"
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    RUNZSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     log ">>> installing powerlevel10k"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
@@ -35,7 +35,7 @@ install_oh_my_zsh() {
 copy_config_files() {
     log ">>> copying congig files"
     CONFIG_DIRECTORY=$DOTFILES_DIRECTORY/config
-    cp $CONFIG_DIRECTORY/wsl.conf /etc/.
+    sudo cp $CONFIG_DIRECTORY/wsl.conf /etc/.
     cp $CONFIG_DIRECTORY/.p10k.zsh $HOME/.
     cp $CONFIG_DIRECTORY/.zshrc $HOME/.
     touch $HOME/.hushlogin
@@ -47,11 +47,11 @@ copy_config_files() {
 
 generate_ssh_keys() {
     log ">>> generating SSH keys"
-    for SSHFILE in "aironou-github.com aironou-gitlab.com"
+    for SSHFILE in "aironou-github.com" "aironou-gitlab.com"
     do
-        ssh-keygen -q -t ed25519 -N "" -f $HOME/.ssh/$SSHFILE
+        ssh-keygen -q -t ed25519 -N "" -f $HOME/.ssh/$SSHFILE -C "$SSHFILE@$(hostname)"
         log ">>> $SSHFILE"
-        cat $HOME/.ssh/$SSHFILE
+        cat $HOME/.ssh/$SSHFILE.pub
         echo
     done
 
@@ -64,7 +64,7 @@ main() {
     install_oh_my_zsh
     generate_ssh_keys
     copy_config_files
+    exec zsh -l
 }
-
 
 main
