@@ -15,7 +15,7 @@ install_dependencies() {
 
 clone_dotfiles() {
     log ">>> cloning dotfiles"
-    if [ -d $DOTFILES_DIRECTORY && -d $DOTFILES_DIRECTORY/.git ]
+    if [ -d $DOTFILES_DIRECTORY ] && [ -d $DOTFILES_DIRECTORY/.git ]
     then
         cd $DOTFILES_DIRECTORY
         git checkout -- .
