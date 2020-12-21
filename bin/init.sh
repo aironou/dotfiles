@@ -35,7 +35,7 @@ install_oh_my_zsh() {
 copy_config_files() {
     log ">>> copying congig files"
     CONFIG_DIRECTORY=$DOTFILES_DIRECTORY/config
-    cp $CONFIG_DIRECTORY/wsl.conf /etc/.
+    sudo cp $CONFIG_DIRECTORY/wsl.conf /etc/.
     cp $CONFIG_DIRECTORY/.p10k.zsh $HOME/.
     cp $CONFIG_DIRECTORY/.zshrc $HOME/.
     touch $HOME/.hushlogin
