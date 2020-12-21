@@ -64,7 +64,7 @@ main() {
     install_oh_my_zsh
     generate_ssh_keys
     copy_config_files
+    exec zsh -l
 }
-
 
 main
