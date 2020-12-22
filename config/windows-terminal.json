@@ -26,16 +26,6 @@
                 "commandline": "\"C:\\Program Files\\Git\\bin\\bash.exe\" --cd-to-home"
             },
             {
-                "guid": "{00000000-0000-0000-0000-000000000002}",
-                "name": "Windows PowerShell",
-                "commandline": "powershell.exe"
-            },
-            {
-                "guid": "{00000000-0000-0000-0000-000000000003}",
-                "name": "Prompt de comando",
-                "commandline": "cmd.exe"
-            },
-            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
