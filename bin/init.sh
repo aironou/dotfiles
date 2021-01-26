@@ -10,7 +10,7 @@ log() {
 install_dependencies() {
     log ">>> installing dependencies"
     sudo apt update
-    sudo apt install -y git htop httpie nmap vim zsh --fix-missing
+    sudo apt install -y git htop httpie nmap vim zsh netcat --fix-missing
 }
 
 clone_dotfiles() {
