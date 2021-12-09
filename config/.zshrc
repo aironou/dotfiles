@@ -20,7 +20,7 @@ plugins=(
     cp
     docker
     git-prompt
-    sudo
+    thefuck
 )
 
 source $ZSH/oh-my-zsh.sh
